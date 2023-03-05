@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOTEL-Anfrageformular</title>
+</head>
+<body>
+    <!--
+        Autocomplete Angaben für Input-Felder:
+        https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete
+    -->
+
+    <h1>Hotel-Anfrage</h1>
+    <form action="" method="post">
+        <div>
+            <label for="anreise">Anreise*</label>
+            <input type="date" name="anreise" id="anreise" min="2023-03-04" required>
+        </div>
+
+        <div>
+            <label for="abreise">Abreise*</label>
+            <input type="date" name="abreise" id="abreise" min="2023-03-05" required>
+        </div>
+
+        <div>
+            <label for="kurstitel">Kurstitel</label>
+            <input type="text" name="kurstitel" id="kurstitel">
+        </div>
+
+        <fieldset>
+            <legend>Teilnehmer</legend>
+
+            <div>
+                <label for="anrede">Anrede*</label>
+                <select name="anrede" id="anrede" required>
+                    <option value=""></option>
+                    <option value="f">Frau</option>
+                    <option value="h">Herr</option>
+                    <option value="d">Divers</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="vorname">Vorname*</label>
+                <input type="text" name="vorname" id="vorname" required autocomplete="given-name" spellcheck="false" minlength="2">
+            </div>
+            
+            <div>
+                <label for="nachname">Nachname*</label>
+                <input type="text" name="nachname" id="nachname" required autocomplete="family-name" spellcheck="false" minlength="2">
+            </div>
+            
+            <div>
+                <label for="geburtsdatum">Geburtsdatum*</label>
+                <input type="date" name="geburtsdatum" id="geburtsdatum" required>
+            </div>
+        </fieldset>
+        
+        <fieldset>
+            <legend>Privatadresse des Teilnehmers</legend>
+            <div>
+                <label for="strasse">Straße/Nr.*</label>
+                <input type="text" name="strasse" id="strasse" required autocomplete="address-line1" spellcheck="false" minlength="2">
+            </div>
+            
+            <div>
+                <label for="plz">PLZ*</label>
+                <input type="text" name="plz" id="plz" required pattern="\d{4,}">
+            </div>
+            
+            <div>
+                <label for="ort">Ort*</label>
+                <input type="text" name="ort" id="ort" required minlength="2">
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Kontaktdaten</legend>
+
+            <div>
+                <label for="mobilnummer">Mobilnummer</label>
+                <input type="tel" name="mobilnummer" id="mobilnummer" pattern="(\+)?[\d{1,} ]+">
+            </div>
+            
+            <div>
+                <label for="email">E-Mail*</label>
+                <input type="email" name="email" id="email" required spellcheck="false" autocomplete="email">
+            </div>
+        </fieldset>
+
+        <div>
+            <input type="checkbox" name="bin-lehrling" id="bin-lehrling" value="1">
+            <label for="bin-lehrling">Ich bin Lehrling</label>
+        </div>
+
+        <div>
+            <input type="checkbox" name="firmenkosten" id="firmenkosten" value="1">
+            <label for="firmenkosten">Kostenübernahme durch Firma gewünscht</label>
+        </div>
+
+        <div>
+            <label for="anmerkung">Anmerkung</label><br>
+            <textarea name="anmerkung" id="anmerkung" rows="10" placeholder="Bemerkungsfeld"></textarea>
+        </div>
+
+        <p>Die von Ihnen oben angegebenen personenbezogenen Daten werden zum Zweck der Hotelbuchung gespeichert und verarbeitet. </p>
+
+        <button type="submit">Senden</button>
+
+        <p>Hier finden Sie unsere <a href="https://www.wifi-ooe.at/datenschutz" target="_blank">Datenschutzbedingungen</a>.</p>
+
+        <p>* Pflichtfeld</p>
+    </form>
+</body>
+</html>

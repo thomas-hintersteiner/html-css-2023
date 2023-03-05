@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulare</title>
+</head>
+<body>
+    <h1>Formulare</h1>
+
+    <h2>Suchformular</h2>
+    <!-- 
+        action... die URL (Ziel) wo die Daten hin gesendet werden sollen
+        method... wie die eingegebenen Daten übermittelt werden sollen
+          - get: Daten werden in der URL übertragen
+          - post: Daten werden nicht sichtbar im HTTP-Request übertragen
+     -->
+    <form action="" method="get">
+        <label for="suchbegriff">Suchbegriff</label>
+        <input type="search" name="suchtext" id="suchbegriff">
+        <button type="submit">Suchen</button>
+    </form>
+
+
+    <h2>Loginformular</h2>
+    <form action="" method="post">
+        <label for="email">E-Mail Adresse *</label>
+        <input type="email" name="email" id="email" required placeholder="susi@musterfrau.at" spellcheck="true">
+        <br>
+        <label for="passwort">Passwort *</label>
+        <input type="password" name="passwort" id="passwort" required>
+        <br>
+
+        <input type="text" pattern="\d{1,}">
+
+        <button type="submit">Login</button>
+    </form>
+
+    <h2>Anmeldeformular</h2>
+    <!-- 
+        enctype="multipart/form-data" wird nur bei Dateiuploads benötigt (egal ob Image oder File)
+     -->
+    <form action="" method="post" enctype="multipart/form-data">
+        <fieldset>
+            <legend>Persönliche Daten</legend>
+
+            <label for="anrede">Anrede*</label>
+            <select name="anrede" id="anrede" required>
+                <option value=""></option>
+                <option value="f">Frau</option>
+                <option value="h">Herr</option>
+                <option value="d">Divers</option>
+            </select>
+
+            <br>
+
+            <label for="vorname">Vorname*</label>
+            <input type="text" name="vorname" id="vorname" required minlength="2" spellcheck="false" autocomplete="given-name">
+            
+            <br>
+
+            <label for="nachname">Nachname*</label>
+            <input type="text" name="nachname" id="nachname" required maxlength="2" spellcheck="false" autocomplete="family-name">
+
+            <br>
+
+            <label for="geburtsdatum">Geburtsdatum*</label>
+            <input type="date" name="geburtsdatum" id="geburtsdatum" required max="2005-03-04" autocomplete="bday">
+
+            <br>
+
+            <label for="email1">E-Mail Adresse*</label>
+            <input type="email" name="email" id="email1" required placeholder="susi@musterfrau.at" spellcheck="true" autocomplete="email">
+
+            <br>
+
+            <label for="telefonnummer">Telefonnummer*</label>
+            <input type="tel" name="telefonnummer" id="telefonnummer" required placeholder="+43 664 123456" pattern="(\+)?[\d{1,} ]+" autocomplete="tel">
+
+        </fieldset>
+
+        <fieldset>
+            <legend>Rechnungsdaten</legend>
+            <input type="radio" name="rechnungsempfaenger" id="rechnungsempfaenger1" value="privat" checked>
+            <label for="rechnungsempfaenger1">Privatzahlung</label>
+            <br>
+            <input type="radio" name="rechnungsempfaenger" id="rechnungsempfaenger2" value="firma">
+            <label for="rechnungsempfaenger2">Firmenzahlung</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Zahlungsweise</legend>
+            <input type="radio" name="zahlungsweise" id="zahlungsweise1" value="paypal" required>
+            <label for="zahlungsweise1">PayPal</label>
+            <br>
+            <input type="radio" name="zahlungsweise" id="zahlungsweise2" value="kreditkarte">
+            <label for="zahlungsweise2">Kreditkarte</label>
+            <br>
+            <input type="radio" name="zahlungsweise" id="zahlungsweise3" value="vorauskasse">
+            <label for="zahlungsweise3">Vorauskasse</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Andere Eingabefelder/Eingabecontrols</legend>
+            
+            <label for="">Interessen</label>
+            <br>
+            <input type="checkbox" name="interessen" id="interesse1" value="sport">
+            <label for="interesse1">Sport</label>
+            <br>
+            <input type="checkbox" name="interessen" id="interesse2" value="kultur" checked>
+            <label for="interesse2">Kultur</label>
+            <br>
+            <input type="checkbox" name="interessen" id="interesse3" value="reisen" checked>
+            <label for="interesse3">Reisen</label>
+            <br>
+            <input type="checkbox" name="interessen" id="interesse4" value="lesen">
+            <label for="interesse4">Lesen</label>
+
+            <br><br>
+
+            <label for="anmerkung">Anmerkung</label><br>
+            <textarea name="anmerkung" id="anmerkung" rows="5"></textarea>
+
+            <br>
+
+            <label for="dateiupload">Dateiupload</label>
+            <input type="file" name="dateiupload" id="dateiupload" accept="image/*" multiple>
+
+            <br>
+
+            <input type="hidden" name="sicherheits-token" value="0134039rjo3ij2309ru9030923525">
+
+        </fieldset>
+
+        <button type="reset">Eingaben leeren</button>
+        <button type="submit">Anmelden</button>
+    </form>
+
+</body>
+</html>
